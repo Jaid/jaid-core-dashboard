@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<title>Login · {{title}}</title>
+<link rel="stylesheet" href="https://unpkg.com/modern-normalize/modern-normalize.css"/>
+<style>
+body {
+background: black;
+color: #ccc;
+font-family: Ubuntu, sans-serif;
+}
+main {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+form > div {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+input {
+  background: transparent;
+  color: #ccc;
+}
+input[type=password]::placeholder {
+  text-align: center;
+  color: #333;
+}
+input[type=submit] {
+  min-width: 120px;
+}
+input[type=submit], input[type=password] {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+#error {
+  color: #ff7272;
+}
+</style>
+</head>
+
+<body>
+<main>
+<h1>{{title}}</h1>
+{{#if error}}
+<div id="error">{{error}}</div>
+{{/if}}
+<form method="POST" action="{{formAction}}">
+<div>
+<input type="password" placeholder="Admin Password"/>
+</div>
+<div>
+<input type="submit" value="Login"/>
+</div>
+</form>
+</main>
+</body>
+
+</html>
