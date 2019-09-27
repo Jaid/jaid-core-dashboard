@@ -9,10 +9,12 @@
     "has-content": "^1.1.0"
   },
   "devDependencies": {
+    "@absolunet/fsp": "^1.6.1",
     "acorn": "^7.0.0",
     "babel-jest": "^24.9.0",
     "babel-preset-jaid": "^6.10.0",
     "browserslist-config-jaid-universal": "^2.1.0",
+    "delay": "^4.3.0",
     "eslint": "^6.4.0",
     "eslint-config-jaid": "^1.32.0",
     "get-port": "^5.0.0",

@@ -1,9 +1,9 @@
 /** @module jaid-core-dashboard */
 
 import {isEmpty} from "has-content"
-import router from "fast-koa-router"
+import {router} from "fast-koa-router"
 
-export default class {
+export default class DashboardPlugin {
 
   constructor() {}
 
@@ -11,13 +11,9 @@ export default class {
     secretKeys: ["dashboardPassword"],
   }
 
-  setCoreReference(core) {
-    /**
-     * @type {import("koa")}
-     */
-    this.koa = core.koa
-  }
-
+  /**
+   * @param {import("jaid-core").BaseConfig} config
+   */
   handleConfig(config) {
     if (isEmpty(config.dashboardPassword)) {
       return false
@@ -25,13 +21,18 @@ export default class {
     this.dashboardPassword = config.dashboardPassword
   }
 
-  init() {
+  /**
+   * @param {import("koa")} koa
+   */
+  handleKoa(koa) {
     const routes = {
       get: {
-        "/status": "",
+        "/status": async context => {
+          context.body = "hi"
+        },
       },
     }
-    this.koa.use(router(routes))
+    koa.use(router(routes))
   }
 
 }
