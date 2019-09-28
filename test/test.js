@@ -35,6 +35,9 @@ it("should run", async () => {
   const testClientClass = class {
 
     init() {
+      /**
+       * @type {import("got").GotInstance}
+       */
       this.got = core.got.extend({
         baseUrl: "http://localhost",
         port: insecurePort,
@@ -47,10 +50,14 @@ it("should run", async () => {
       expect(response.body).toMatch("action=\"/status\"")
       const form = new FormData
       form.append("password", dashboardPassword)
-      const loginResponse = await this.got.post("status", {
+      await this.got.post("status", {
         body: form,
       })
-      core.logger.info(loginResponse.body)
+      const loggedInResponse = await this.got("status", {
+        headers: {
+          Cookie: `dashboardPassword=${dashboardPassword}`,
+        },
+      })
     }
 
   }
