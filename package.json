@@ -7,7 +7,7 @@
     "@babel/runtime": "^7.6.2",
     "fast-koa-router": "^1.0.1",
     "has-content": "^1.1.0",
-    "koa-better-body": "^3.0.5",
+    "koa-better-body": "^3.1.2",
     "koa-compose": "^4.1.0"
   },
   "devDependencies": {
@@ -17,14 +17,14 @@
     "babel-preset-jaid": "^6.10.0",
     "browserslist-config-jaid-node": "^2.2.2",
     "delay": "^4.3.0",
-    "eslint": "^6.4.0",
-    "eslint-config-jaid": "^1.32.0",
+    "eslint": "^6.5.1",
+    "eslint-config-jaid": "^1.34.0",
     "form-data": "^2.5.1",
     "get-port": "^5.0.0",
     "jaid-core": "^5.4.0",
     "jest": "^24.9.0",
     "koa": "^2.8.2",
-    "nanoid": "^2.1.1",
+    "nanoid": "^2.1.2",
     "rimraf": "^3.0.0",
     "webpack-config-jaid": "^5.27.10"
   },
