@@ -23,8 +23,8 @@
     "get-port": "^5.0.0",
     "jaid-core": "^5.5.0",
     "jest": "^24.9.0",
-    "koa": "^2.8.2",
-    "nanoid": "^2.1.2",
+    "koa": "^2.10.0",
+    "nanoid": "^2.1.3",
     "rimraf": "^3.0.0",
     "webpack-config-jaid": "^5.27.10"
   },
