@@ -10,13 +10,37 @@ color: #ccc;
 font-family: Ubuntu, sans-serif;
 }
 main {
+  margin-top: 5px;
+}
+.log {
+margin-top: 5px;
+margin-bottom: 5px;
+padding: 5px;
+}
+.logTitle {
+
+}
+.logLines {
+  font-family: Ubuntu Mono, monospace;
 }
 </style>
 </head>
 
 <body>
 <main>
-Status
+Status<br/>
+{{#each logs}}
+<div class="log">
+<div class="logTitle">
+{{name}} ({{size}})
+</div>
+<div class="logLines">
+{{#each lines}}
+{{this}}<br/>
+{{/each}}
+</div>
+</div>
+{{/each}}
 </main>
 </body>
 

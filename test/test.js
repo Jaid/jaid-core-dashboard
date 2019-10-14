@@ -45,9 +45,10 @@ it("should run", async () => {
     }
 
     async ready() {
-      const response = await this.got("status")
-      expect(response.statusCode).toBe(200)
-      expect(response.body).toMatch("action=\"/status\"")
+      const initialResponse = await this.got("status")
+      await fsp.outputFile(path.join(__dirname, "..", "dist", "test", "login.html"), initialResponse.body)
+      expect(initialResponse.statusCode).toBe(200)
+      expect(initialResponse.body).toMatch("action=\"/status\"")
       const form = new FormData
       form.append("password", dashboardPassword)
       await this.got.post("status", {
@@ -58,6 +59,8 @@ it("should run", async () => {
           Cookie: `dashboardPassword=${dashboardPassword}`,
         },
       })
+      statusCode = loggedInResponse.statusCode
+      await fsp.outputFile(path.join(__dirname, "..", "dist", "test", "status.html"), loggedInResponse.body)
     }
 
   }

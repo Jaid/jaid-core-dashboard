@@ -1,8 +1,13 @@
 /** @module jaid-core-dashboard */
 
+import path from "path"
+
 import {isEmpty} from "has-content"
 import {router} from "fast-koa-router"
 import bodyMiddleware from "koa-better-body"
+import globby from "globby"
+import fsp from "@absolunet/fsp"
+import readLastLines from "read-last-lines"
 
 import loginPage from "./loginPage.hbs?html"
 import statusPage from "./statusPage.hbs?html"
@@ -48,7 +53,7 @@ export default class DashboardPlugin {
   handleKoa(koa) {
     const routes = {
       [this.path]: {
-        get: /** @param {import("koa").Context} context */ context => {
+        get: /** @param {import("koa").Context} context */ async context => {
           const password = context.cookies.get(this.cookieName)
           if (password !== this.password) {
             if (password === undefined) {
@@ -62,7 +67,27 @@ export default class DashboardPlugin {
               return
             }
           }
+          const logFiles = await globby("*.txt", {
+            cwd: this.core.logFolder,
+          })
+          const getLogsJobs = logFiles.map(async logFile => {
+            const fullLogFile = path.join(this.core.logFolder, logFile)
+            const stat = await fsp.stat(fullLogFile)
+            const size = stat.size
+            const logInfo = {
+              size,
+              name: logFile,
+              fullPath: fullLogFile,
+            }
+            if (size > 0) {
+              const linesString = await readLastLines.read(fullLogFile, 20)
+              logInfo.lines = linesString.trim().split("\n")
+            }
+            return logInfo
+          })
+          const logs = await Promise.all(getLogsJobs)
           context.body = statusPage({
+            logs,
             ...this.templateContext,
           })
         },
