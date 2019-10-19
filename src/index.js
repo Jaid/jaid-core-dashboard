@@ -118,7 +118,7 @@ export default class DashboardPlugin {
                   lineMatch.groups.lines = lineMatch.groups.message.split("\n")
                   logInfo.lines.push(lineMatch.groups)
                 } else {
-                  last(logInfo.lines).lines.push(line)
+                  last(logInfo.lines)?.lines.push(line)
                 }
               }
             }
