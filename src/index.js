@@ -8,6 +8,7 @@
  */
 
 import path from "path"
+import os from "os"
 
 import filesize from "filesize"
 import {isEmpty} from "has-content"
@@ -123,6 +124,9 @@ export default class DashboardPlugin {
           })
           const logs = await Promise.all(getLogsJobs)
           const logsSorted = orderBy(logs, ["modifiedTime"], ["desc"])
+          const freeBytes = os.freemem()
+          const totalBytes = os.totalmem()
+          const usedByes = totalBytes - freeBytes
           context.body = statusPage({
             logs: logsSorted,
             infoBlocks: [
@@ -133,6 +137,10 @@ export default class DashboardPlugin {
               {
                 key: "Runtime",
                 value: readableMs(Date.now() - this.core.startTime),
+              },
+              {
+                key: "RAM Usage",
+                value: `${Math.floor(usedByes / totalBytes * 100)}%`,
               },
             ],
             ...this.templateContext,
