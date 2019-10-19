@@ -61,6 +61,7 @@ it("should run", async () => {
       })
       statusCode = loggedInResponse.statusCode
       await fsp.outputFile(path.join(__dirname, "..", "dist", "test", "status.html"), loggedInResponse.body)
+      expect(loggedInResponse.body).toMatch(`Started insecure server on port ${insecurePort}`)
     }
 
   }

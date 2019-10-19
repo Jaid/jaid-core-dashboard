@@ -34,10 +34,21 @@ Status<br/>
 <div class="logTitle">
 {{name}} ({{size}})
 </div>
-<div class="logLines">
+{{#if lines}}
+<table class="logLines">
 {{#each lines}}
-{{this}}<br/>
+<tr>
+{{#if line}}
+<td colspan="3">{{line}}</td>
+{{else}}
+<td>{{date}}</td>
+<td>{{level}}</td>
+<td>{{message}}</td>
+{{/if}}
+</tr>
 {{/each}}
+</table>
+{{/if}}
 </div>
 </div>
 {{/each}}

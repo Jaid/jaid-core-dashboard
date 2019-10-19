@@ -81,7 +81,15 @@ export default class DashboardPlugin {
             }
             if (size > 0) {
               const linesString = await readLastLines.read(fullLogFile, 20)
-              logInfo.lines = linesString.trim().split("\n")
+              logInfo.lines = linesString.trim().split("\n").map(line => {
+                const lineMatch = /(?<date>.*?) +(?<level>[a-z]+)] +(?<message>.*)/i
+                if (lineMatch.groups) {
+                  return lineMatch.groups
+                }
+                return {
+                  line,
+                }
+              })
             }
             return logInfo
           })
