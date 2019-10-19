@@ -110,7 +110,7 @@ export default class DashboardPlugin {
               const linesString = await readLastLines.read(fullLogFile, this.lineCount)
               logInfo.lines = linesString.trim().split("\n").map(line => {
                 const lineMatch = /(?<date>[\d.:]+) +(?<level>[a-z]+?)] +(?<message>.*)/i.exec(line)
-                if (lineMatch.groups) {
+                if (lineMatch) {
                   lineMatch.groups.levelId = lineMatch.groups.level.toLowerCase()
                   lineMatch.groups.color = colors[lineMatch.groups.levelId] || defaultColor
                   return lineMatch.groups
