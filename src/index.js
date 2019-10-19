@@ -1,5 +1,12 @@
 /** @module jaid-core-dashboard */
 
+/**
+ * @typedef Options
+ * @prop {number} lineCount
+ * @prop {string} cookieName
+ * @prop {string} path
+ */
+
 import path from "path"
 
 import {isEmpty} from "has-content"
@@ -23,9 +30,14 @@ const defaultColor = "#BBB"
 
 export default class DashboardPlugin {
 
-  constructor() {
-    this.path = "/status"
-    this.cookieName = "dashboardPassword"
+  /**
+   * @constructor
+   * @param {Options} options
+   */
+  constructor(options = {}) {
+    this.path = options.path || "/status"
+    this.cookieName = options.cookieName || "dashboardPassword"
+    this.lineCount = options.lineCount || 20
   }
 
   setCoreReference(core) {
@@ -89,7 +101,7 @@ export default class DashboardPlugin {
               fullPath: fullLogFile,
             }
             if (size > 0) {
-              const linesString = await readLastLines.read(fullLogFile, 20)
+              const linesString = await readLastLines.read(fullLogFile, this.lineCount)
               logInfo.lines = linesString.trim().split("\n").map(line => {
                 const lineMatch = /(?<date>[\d.:]+) +(?<level>[a-z]+?)] +(?<message>.*)/i.exec(line)
                 if (lineMatch.groups) {
