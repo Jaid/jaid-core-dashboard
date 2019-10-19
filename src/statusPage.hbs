@@ -23,6 +23,9 @@ padding: 5px;
 .logLines {
   font-family: Ubuntu Mono, monospace;
 }
+.dateColumn {
+  min-width: 115px
+}
 </style>
 </head>
 
@@ -39,11 +42,10 @@ Status<br/>
 {{#each lines}}
 <tr>
 {{#if line}}
-<td colspan="3">{{line}}</td>
+<td colspan="2">{{line}}</td>
 {{else}}
-<td>{{date}}</td>
-<td>{{level}}</td>
-<td>{{message}}</td>
+<td class="dateColumn" style="color: {{color}}">{{date}}</td>
+<td style="color: {{color}}">{{message}}</td>
 {{/if}}
 </tr>
 {{/each}}

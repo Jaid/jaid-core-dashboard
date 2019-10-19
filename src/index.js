@@ -12,6 +12,15 @@ import readLastLines from "read-last-lines"
 import loginPage from "./loginPage.hbs?html"
 import statusPage from "./statusPage.hbs?html"
 
+const colors = {
+  warn: "#ffb861",
+  error: "#ff5a5a",
+  info: "#5ad1ff",
+  debug: "#475ed2",
+}
+
+const defaultColor = "#BBB"
+
 export default class DashboardPlugin {
 
   constructor() {
@@ -82,8 +91,10 @@ export default class DashboardPlugin {
             if (size > 0) {
               const linesString = await readLastLines.read(fullLogFile, 20)
               logInfo.lines = linesString.trim().split("\n").map(line => {
-                const lineMatch = /(?<date>.*?) +(?<level>[a-z]+)] +(?<message>.*)/i
+                const lineMatch = /(?<date>[\d.:]+) +(?<level>[a-z]+?)] +(?<message>.*)/i.exec(line)
                 if (lineMatch.groups) {
+                  lineMatch.groups.levelId = lineMatch.groups.level.toLowerCase()
+                  lineMatch.groups.color = colors[lineMatch.groups.levelId] || defaultColor
                   return lineMatch.groups
                 }
                 return {
