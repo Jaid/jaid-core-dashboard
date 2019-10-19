@@ -9,12 +9,15 @@
 
 import path from "path"
 
+import filesize from "filesize"
 import {isEmpty} from "has-content"
 import {router} from "fast-koa-router"
 import bodyMiddleware from "koa-better-body"
 import globby from "globby"
 import fsp from "@absolunet/fsp"
 import readLastLines from "read-last-lines"
+import {orderBy} from "lodash"
+import readableMs from "readable-ms"
 
 import loginPage from "./loginPage.hbs?html"
 import statusPage from "./statusPage.hbs?html"
@@ -97,6 +100,8 @@ export default class DashboardPlugin {
             const size = stat.size
             const logInfo = {
               size,
+              modifiedTime: stat.mtimeMs,
+              sizeString: filesize(size),
               name: logFile,
               fullPath: fullLogFile,
             }
@@ -117,8 +122,19 @@ export default class DashboardPlugin {
             return logInfo
           })
           const logs = await Promise.all(getLogsJobs)
+          const logsSorted = orderBy(logs, ["modifiedTime"], ["desc"])
           context.body = statusPage({
-            logs,
+            logs: logsSorted,
+            infoBlocks: [
+              {
+                key: "Status",
+                value: this.templateContext.title,
+              },
+              {
+                key: "Runtime",
+                value: readableMs(Date.now() - this.core.startTime),
+              },
+            ],
             ...this.templateContext,
           })
         },

@@ -15,7 +15,6 @@ main {
 .log {
 margin-top: 5px;
 margin-bottom: 5px;
-padding: 5px;
 }
 .logTitle {
 
@@ -26,16 +25,44 @@ padding: 5px;
 .dateColumn {
   min-width: 110px
 }
+.infoBlocks {
+  display: flex;
+}
+.infoBlock {
+  text-align: center;
+  min-width: 150px;
+  min-height: 50px;
+  border: 1px solid #AAA;
+  padding: 10px;
+  margin: 10px;
+}
+.infoKey {
+  color: #AAA;
+  font-size: 75%;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.infoValue {
+  font-size: 150%;
+}
 </style>
 </head>
 
 <body>
 <main>
-Status<br/>
+<div class="infoBlocks">
+{{#each infoBlocks}}
+<span class="infoBlock">
+  <div class="infoKey">{{key}}</div>
+  <div class="infoValue">{{value}}</div>
+</span>
+{{/each}}
+</div>
 {{#each logs}}
 <div class="log">
 <div class="logTitle">
-{{name}} ({{size}})
+{{name}} ({{sizeString}})
 </div>
 {{#if lines}}
 <table class="logLines">

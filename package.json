@@ -6,11 +6,13 @@
   "dependencies": {
     "@babel/runtime": "^7.6.3",
     "fast-koa-router": "^1.0.1",
+    "filesize": "^5.0.3",
     "globby": "^10.0.1",
     "has-content": "^1.1.0",
     "koa-better-body": "^3.1.6",
     "koa-compose": "^4.1.0",
-    "read-last-lines": "^1.7.1"
+    "read-last-lines": "^1.7.1",
+    "readable-ms": "^1.0.1"
   },
   "devDependencies": {
     "@absolunet/fsp": "^1.6.2",
