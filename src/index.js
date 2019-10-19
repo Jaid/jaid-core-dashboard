@@ -17,7 +17,7 @@ import bodyMiddleware from "koa-better-body"
 import globby from "globby"
 import fsp from "@absolunet/fsp"
 import readLastLines from "read-last-lines"
-import {orderBy} from "lodash"
+import {orderBy, last} from "lodash"
 import readableMs from "readable-ms"
 
 import loginPage from "./loginPage.hbs?html"
@@ -108,22 +108,24 @@ export default class DashboardPlugin {
             }
             if (size > 0) {
               const linesString = await readLastLines.read(fullLogFile, this.lineCount)
-              logInfo.lines = linesString.trim().split("\n").map(line => {
+              const lines = linesString.trim().split("\n")
+              logInfo.lines = []
+              for (const line of lines) {
                 const lineMatch = /(?<date>[\d.:]+) +(?<level>[a-z]+?)] +(?<message>.*)/i.exec(line)
                 if (lineMatch) {
                   lineMatch.groups.levelId = lineMatch.groups.level.toLowerCase()
                   lineMatch.groups.color = colors[lineMatch.groups.levelId] || defaultColor
-                  return lineMatch.groups
+                  lineMatch.groups.lines = lineMatch.groups.message.split("\n")
+                  logInfo.lines.push(lineMatch.groups)
+                } else {
+                  last(logInfo.lines).lines.push(line)
                 }
-                return {
-                  line,
-                }
-              })
+              }
             }
             return logInfo
           })
           const logs = await Promise.all(getLogsJobs)
-          const logsSorted = orderBy(logs, ["modifiedTime"], ["desc"])
+          const logsSorted = orderBy(logs, "modifiedTime")
           const freeBytes = os.freemem()
           const totalBytes = os.totalmem()
           const usedByes = totalBytes - freeBytes

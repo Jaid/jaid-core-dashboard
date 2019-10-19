@@ -24,6 +24,7 @@ main {
 }
 .dateColumn {
   min-width: 110px
+  vertical-align: top;
 }
 .infoBlocks {
   display: flex;
@@ -68,12 +69,12 @@ main {
 <table class="logLines">
 {{#each lines}}
 <tr>
-{{#if line}}
-<td colspan="2">{{line}}</td>
-{{else}}
 <td class="dateColumn" style="color: {{color}}">{{date}}</td>
-<td style="color: {{color}}">{{message}}</td>
-{{/if}}
+<td style="color: {{color}}">
+{{#each lines}}
+<div>{{this}}</div>
+{{/each}}
+</td>
 </tr>
 {{/each}}
 </table>

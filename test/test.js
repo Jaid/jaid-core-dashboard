@@ -45,6 +45,7 @@ it("should run", async () => {
     }
 
     async ready() {
+      core.logger.error("This will be\na multiline message.")
       const initialResponse = await this.got("status")
       await fsp.outputFile(path.join(__dirname, "..", "dist", "test", "login.html"), initialResponse.body)
       expect(initialResponse.statusCode).toBe(200)
