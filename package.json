@@ -1,5 +1,4 @@
 {
-  "private": true,
   "webpackConfigJaid": "nodeClass",
   "version": "1.2.2",
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
@@ -43,5 +42,6 @@
     "test:coverage": "npm run test:dev -- --coverage --json --outputFile=dist/jest/stats.json",
     "test:dev": "npm run build:dev && NODE_ENV=test MAIN=$(npx find-by-extension-cli js --fullPath --cwd dist/package/development) jest --runInBand",
     "test:debug": "npm run build:dev && DEBUG=\"$DEBUG,$(basename $PWD),$(basename $PWD):*\" NODE_ENV=test MAIN=$(npx find-by-extension-cli js --fullPath --cwd dist/package/development) jest --runInBand"
-  }
+  },
+  "name": "jaid-core-dashboard"
 }
