@@ -44,5 +44,6 @@
     "test:debug": "npm run build:dev && DEBUG=\"$DEBUG,$(basename $PWD),$(basename $PWD):*\" NODE_ENV=test MAIN=$(npx find-by-extension-cli js --fullPath --cwd dist/package/development) jest --runInBand",
     "prepareActionJest": "npm run build:prod"
   },
-  "name": "jaid-core-dashboard"
+  "name": "jaid-core-dashboard",
+  "description": "jaid-core plugin that opens a web server with a health dashboard."
 }
