@@ -3,7 +3,7 @@
   "version": "1.2.3",
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
   "dependencies": {
-    "@babel/runtime": "^7.7.4",
+    "@babel/runtime": "^7.7.7",
     "fast-koa-router": "^1.0.1",
     "filesize": "^6.0.1",
     "globby": "^10.0.1",
@@ -11,25 +11,25 @@
     "koa-better-body": "^3.2.0",
     "koa-compose": "^4.1.0",
     "read-last-lines": "^1.7.1",
-    "readable-ms": "^1.0.1"
+    "readable-ms": "^2.0.1"
   },
   "devDependencies": {
     "@absolunet/fsp": "^1.6.2",
     "acorn": "^7.1.0",
     "babel-jest": "^24.9.0",
-    "babel-preset-jaid": "^6.11.1",
+    "babel-preset-jaid": "^7.3.0",
     "browserslist-config-jaid-node": "^2.2.2",
     "delay": "^4.3.0",
-    "eslint": "^6.7.1",
-    "eslint-config-jaid": "^1.37.0",
+    "eslint": "^6.8.0",
+    "eslint-config-jaid": "^1.41.1",
     "form-data": "^3.0.0",
-    "get-port": "^5.0.0",
-    "jaid-core": "^5.6.0",
+    "get-port": "^5.1.0",
+    "jaid-core": "^5.9.0",
     "jest": "^24.9.0",
     "koa": "^2.11.0",
-    "nanoid": "^2.1.7",
+    "nanoid": "^2.1.8",
     "rimraf": "^3.0.0",
-    "webpack-config-jaid": "^5.29.1"
+    "webpack-config-jaid": "^9.2.0"
   },
   "scripts": {
     "clean": "rimraf dist/",
