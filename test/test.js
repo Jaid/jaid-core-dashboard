@@ -1,12 +1,11 @@
-import path from "path"
-
-import JaidCore from "jaid-core"
-import getPort from "get-port"
 import fsp from "@absolunet/fsp"
 import delay from "delay"
+import FormData from "form-data"
+import getPort from "get-port"
+import JaidCore from "jaid-core"
 import ms from "ms.macro"
 import nanoid from "nanoid"
-import FormData from "form-data"
+import path from "path"
 
 const indexModule = (process.env.MAIN ? path.resolve(process.env.MAIN) : path.join(__dirname, "..", "src")) |> require
 
