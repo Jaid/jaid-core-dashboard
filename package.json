@@ -24,7 +24,7 @@
     "eslint-config-jaid": "^1.41.1",
     "form-data": "^3.0.0",
     "get-port": "^5.1.0",
-    "jaid-core": "^5.9.0",
+    "jaid-core": "^5.9.2",
     "jest": "^24.9.0",
     "koa": "^2.11.0",
     "nanoid": "^2.1.8",
