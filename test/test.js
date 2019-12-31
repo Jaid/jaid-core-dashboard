@@ -35,10 +35,10 @@ it("should run", async () => {
 
     init() {
       /**
-       * @type {import("got").GotInstance}
+       * @type {import("got").Got}
        */
       this.got = core.got.extend({
-        baseUrl: "http://localhost",
+        prefixUrl: "http://localhost",
         port: insecurePort,
       })
     }
