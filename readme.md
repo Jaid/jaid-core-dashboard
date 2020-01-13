@@ -1,9 +1,9 @@
 # jaid-core-dashboard
 
 
-<a href="https://raw.githubusercontent.com/Jaid/jaid-core-dashboard/master/license.txt"><img src="https://img.shields.io/github/license/Jaid/jaid-core-dashboard?style=flat-square" alt="License"/></a>  
-<a href="https://actions-badge.atrox.dev/Jaid/jaid-core-dashboard/goto"><img src="https://img.shields.io/endpoint.svg?style=flat-square&url=https%3A%2F%2Factions-badge.atrox.dev%2FJaid%2Fjaid-core-dashboard%2Fbadge" alt="Build status"/></a> <a href="https://github.com/Jaid/jaid-core-dashboard/commits"><img src="https://img.shields.io/github/commits-since/Jaid/jaid-core-dashboard/v1.3.0?style=flat-square&logo=github" alt="Commits since v1.3.0"/></a> <a href="https://github.com/Jaid/jaid-core-dashboard/commits"><img src="https://img.shields.io/github/last-commit/Jaid/jaid-core-dashboard?style=flat-square&logo=github" alt="Last commit"/></a> <a href="https://github.com/Jaid/jaid-core-dashboard/issues"><img src="https://img.shields.io/github/issues/Jaid/jaid-core-dashboard?style=flat-square&logo=github" alt="Issues"/></a>  
-<a href="https://npmjs.com/package/jaid-core-dashboard"><img src="https://img.shields.io/npm/v/jaid-core-dashboard?style=flat-square&logo=npm&label=latest%20version" alt="Latest version on npm"/></a> <a href="https://github.com/Jaid/jaid-core-dashboard/network/dependents"><img src="https://img.shields.io/librariesio/dependents/npm/jaid-core-dashboard?style=flat-square&logo=npm" alt="Dependents"/></a> <a href="https://npmjs.com/package/jaid-core-dashboard"><img src="https://img.shields.io/npm/dm/jaid-core-dashboard?style=flat-square&logo=npm" alt="Downloads"/></a>
+<a href="https://raw.githubusercontent.com/jaid/jaid-core-dashboard/master/license.txt"><img src="https://img.shields.io/github/license/jaid/jaid-core-dashboard?style=flat-square" alt="License"/></a> <a href="https://github.com/sponsors/jaid"><img src="https://img.shields.io/badge/<3-Sponsor-FF45F1?style=flat-square" alt="Sponsor jaid-core-dashboard"/></a>
+<a href="https://actions-badge.atrox.dev/jaid/jaid-core-dashboard/goto"><img src="https://img.shields.io/endpoint.svg?style=flat-square&url=https%3A%2F%2Factions-badge.atrox.dev%2Fjaid%2Fjaid-core-dashboard%2Fbadge" alt="Build status"/></a> <a href="https://github.com/jaid/jaid-core-dashboard/commits"><img src="https://img.shields.io/github/commits-since/jaid/jaid-core-dashboard/v1.3.0?style=flat-square&logo=github" alt="Commits since v1.3.0"/></a> <a href="https://github.com/jaid/jaid-core-dashboard/commits"><img src="https://img.shields.io/github/last-commit/jaid/jaid-core-dashboard?style=flat-square&logo=github" alt="Last commit"/></a> <a href="https://github.com/jaid/jaid-core-dashboard/issues"><img src="https://img.shields.io/github/issues/jaid/jaid-core-dashboard?style=flat-square&logo=github" alt="Issues"/></a>  
+<a href="https://npmjs.com/package/jaid-core-dashboard"><img src="https://img.shields.io/npm/v/jaid-core-dashboard?style=flat-square&logo=npm&label=latest%20version" alt="Latest version on npm"/></a> <a href="https://github.com/jaid/jaid-core-dashboard/network/dependents"><img src="https://img.shields.io/librariesio/dependents/npm/jaid-core-dashboard?style=flat-square&logo=npm" alt="Dependents"/></a> <a href="https://npmjs.com/package/jaid-core-dashboard"><img src="https://img.shields.io/npm/dm/jaid-core-dashboard?style=flat-square&logo=npm" alt="Downloads"/></a>
 
 **jaid-core plugin that opens a web server with a health dashboard.**
 
@@ -37,14 +37,13 @@ yarn add jaid-core-dashboard@^1.3.0
 
 
 
-
 ## Development
 
 
 
 Setting up:
 ```bash
-git clone git@github.com:Jaid/jaid-core-dashboard.git
+git clone git@github.com:jaid/jaid-core-dashboard.git
 cd jaid-core-dashboard
 npm install
 ```
