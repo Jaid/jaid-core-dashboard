@@ -47,5 +47,9 @@
   },
   "name": "jaid-core-dashboard",
   "description": "jaid-core plugin that opens a web server with a health dashboard.",
-  "funding": "https://github.com/sponsors/jaid"
+  "funding": "https://github.com/sponsors/jaid",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaid/jaid-core-dashboard"
+  }
 }
