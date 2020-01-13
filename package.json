@@ -46,5 +46,6 @@
     "prepareActionJest": "npm run build:prod"
   },
   "name": "jaid-core-dashboard",
-  "description": "jaid-core plugin that opens a web server with a health dashboard."
+  "description": "jaid-core plugin that opens a web server with a health dashboard.",
+  "funding": "https://github.com/sponsors/jaid"
 }
